@@ -1,0 +1,74 @@
+# Delphi compiled files
+*.exe
+*.dll
+*.bpl
+*.dcu
+*.dcp
+*.dsk
+*.local
+*.identcache
+*.tvsconfig
+*.stat
+
+# Intermediate files
+*.dof
+*.dsm
+*.cfg
+*.log
+*.rsm
+*.drc
+*.hpp
+*.o
+*.obj
+*.res
+*.map
+*.bak
+*.dproj.local
+*.dproj.bak
+*.~*
+
+# FireDAC temporary files
+*.fdm
+*.fdb
+
+# RAD Studio specific files
+*.tvsconfig
+__history/
+__recovery/
+*.rsm
+*.identcache
+*.local
+
+# Backup and autosave files
+*.dproj.local
+*.dsk
+*.local
+*.identcache
+__history/
+__recovery/
+backup/
+*.bak
+*.~*
+
+# Packages and builds
+*.lib
+*.bpi
+*.dcp
+*.bpl
+*.bpk
+*.tds
+*.tdf
+
+# Cached and generated files
+*.groupproj.cache
+__history/
+__recovery/
+
+# Ignore the output directories
+Win32/
+Win64/
+Linux32/
+Linux64/
+Android/
+iOS/
+macOS/
