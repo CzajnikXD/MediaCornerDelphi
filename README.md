@@ -30,7 +30,7 @@
 - Install Firebird 3.0.12 or later.
 - Ensure the Firebird service is running.
 3. **Set Up the Environment Variable**
-- Add an environment variable named API_KEY and set it to your TMDB API key.
+- Add an environment variable named `API_KEY` and set it to your TMDB API key.
 4. **Run the Application**
 - Open the project in Rad Studio.
 - Ensure Firebird is running.
