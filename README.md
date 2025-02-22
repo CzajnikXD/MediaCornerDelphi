@@ -13,7 +13,7 @@
 - View users on the friends list. 
 - Remove users from the friends list.
 
-## **Upcoming Features::**
+## **Upcoming Features:**
 - Browse the list of all movies in the database.
 - Modify user account details from within the application.
 - View friends' activity.
