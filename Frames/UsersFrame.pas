@@ -15,6 +15,7 @@ type
       Column: TColumn; State: TGridDrawState);
     procedure DBUsersGridCellClick(Column: TColumn);
     procedure FrameCreate(Sender: TObject);
+    procedure UserSearchBoxInvokeSearch(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,6 +58,32 @@ procedure TUsers.FrameCreate(Sender: TObject);
 begin
   Self.ParentBackground := False;
   Self.Color := RGB(45, 51, 90);
+
+  dmMediaCorner.ibdsUsers.Close;
+  dmMediaCorner.ibdsUsers.SelectSQL.Text := 'SELECT * FROM mc_users WHERE mcu_name <> ' + QuotedStr(dmMediaCorner.CurrentUsername);
+  dmMediaCorner.ibdsUsers.Open;
+end;
+
+procedure TUsers.UserSearchBoxInvokeSearch(Sender: TObject);
+var
+  SearchText: string;
+  CurrentUser: string;
+begin
+  SearchText := trim(UserSearchBox.Text);
+  CurrentUser := dmMediaCorner.CurrentUsername;
+  if SearchText = '' then
+  begin
+    dmMediaCorner.ibdsUsers.Close;
+    dmMediaCorner.ibdsUsers.SelectSQL.Text := 'SELECT * FROM mc_users WHERE mcu_name <> ' + QuotedStr(CurrentUser);
+    dmMediaCorner.ibdsUsers.Open;
+  end
+  else
+  begin
+    dmMediaCorner.ibdsUsers.Close;
+    dmMediaCorner.ibdsUsers.SelectSQL.Text := 'SELECT * FROM mc_users WHERE mcu_name LIKE ' + QuotedStr('%'+SearchText+'%')
+                                          + ' AND mcu_name <> ' + QuotedStr(CurrentUser);
+    dmMediaCorner.ibdsUsers.Open;
+  end;
 end;
 
 procedure TUsers.DBUsersGridCellClick(Column: TColumn);
