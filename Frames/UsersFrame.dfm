@@ -59,5 +59,6 @@ object Users: TUsers
     Height = 35
     TabOrder = 1
     TextHint = 'Search a user'
+    OnInvokeSearch = UserSearchBoxInvokeSearch
   end
 end
