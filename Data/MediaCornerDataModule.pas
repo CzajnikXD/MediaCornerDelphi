@@ -79,13 +79,17 @@ implementation
   - The database file path is dynamically constructed based on the application's directory.
 }
 procedure TdmMediaCorner.InitDB();
+var
+  ProjectDir: string;
 begin
   if not ibdbMediaCorner.Connected then
   begin
   with dmMediaCorner.ibdbMediaCorner do
     begin
       Params.Clear;
-      DatabaseName := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0))) + 'Data\MEDIACORNERDB.GDB';
+      ProjectDir := ExtractFilePath(ParamStr(0));
+      ProjectDir := ExpandFileName(ProjectDir + '..\..\');
+      DatabaseName := IncludeTrailingPathDelimiter(ProjectDir + 'Data\MEDIACORNERDB.GDB');
       Params.Add('user_name=SYSDBA');
       Params.Add('password=masterkey');
       Params.Add('lc_ctype=WIN1250');
