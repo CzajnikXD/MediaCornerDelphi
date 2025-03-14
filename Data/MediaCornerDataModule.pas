@@ -89,7 +89,8 @@ begin
       Params.Clear;
       ProjectDir := ExtractFilePath(ParamStr(0));
       ProjectDir := ExpandFileName(ProjectDir + '..\..\');
-      DatabaseName := IncludeTrailingPathDelimiter(ProjectDir + 'Data\MEDIACORNERDB.GDB');
+      DatabaseName := IncludeTrailingPathDelimiter(ProjectDir + 'Data') + 'MEDIACORNERDB.GDB';
+      ShowMessage(DatabaseName);
       Params.Add('user_name=SYSDBA');
       Params.Add('password=masterkey');
       Params.Add('lc_ctype=WIN1250');
